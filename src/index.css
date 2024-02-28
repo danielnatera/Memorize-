@@ -41,6 +41,10 @@ nav {
   font-size:  .4rem !important;
   font-weight: 400;
 }
+
+select {
+  background-color: #99d299 !important;
+}
 /* Scroller */
 .board::-webkit-scrollbar {
   width: 10px;
@@ -413,6 +417,15 @@ body {
     width: 100px;
     height:100px;
   }
+  .mediumCard {
+    width: 120px;
+    height:120px;
+  }
+
+  .largeCard {
+    width: 160px;
+    height:160px;
+  }
   .fontSmall {
     font-size: .3rem !important;
   }
@@ -433,6 +446,15 @@ body {
     width: 60px;
     height:60px;
   }
+  .mediumCard {
+    width: 80px;
+    height:80px;
+  }
+
+  .largeCard {
+    width: 120px;
+    height:120px;
+  }
 }
 
 @media only screen and (max-width: 875px) {
@@ -442,6 +464,15 @@ body {
   .smallCard {
     width: 80px;
     height:80px;
+  }
+  .mediumCard {
+    width: 90px;
+    height:90px;
+  }
+
+  .largeCard {
+    width: 120px;
+    height:120px;
   }
   .appLogo {
     width: 40px;
@@ -483,6 +514,19 @@ body {
     width: 85px;
     height:85px;
   }
+  .mediumCard {
+    width: 95px;
+    height:95px;
+  }
+
+  .largeCard {
+    width: 120px;
+    height:120px;
+  }
+  main div section {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
 
   .mainContainer {
     width: 100vw !important;
@@ -495,6 +539,9 @@ body {
   }
   .toolsContainer div {
     margin-right: 16px !important;
+  } 
+  select {
+    font-size: 12px;
   }
 }
 
@@ -510,10 +557,6 @@ body {
   .mediumCard {
     width: 65px;
     height: 65px;
-  }
-  main div section {
-    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
-    gap: 0.5rem !important;
   }
   nav {
     width: 100vw;
@@ -542,6 +585,12 @@ body {
   }
   .text-xl {
     display: none;
+  }
+  .board {
+    margin: 4px 4px 0px 4px;
+  }
+  select {
+    font-size: 8px;
   }
 }
 

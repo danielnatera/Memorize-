@@ -63,7 +63,7 @@ function Navbar({ setOpenSettings }) {
             <select
               onChange={handleLanguageChange}
               value={selectedLanguage}
-              className="bg-transparent border border-white text-white p-2 rounded"
+              className="bg-transparent border border-light bg-light text-dark p-2 rounded"
             >
               <option value="es">{t("spanish")}</option>
               <option value="en">{t("english")}</option>
