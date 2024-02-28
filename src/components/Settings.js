@@ -12,7 +12,6 @@ function Settings({
   resetGame,
 }) {
   const { t } = useTranslation("vocab");
-  let originalDifficulty = currentDifficulty;
   useEffect(() => {
     if (openSettings) {
       saveUsername(localStorage.getItem("userName") || "");
