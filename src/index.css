@@ -1,13 +1,592 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+/* Navbar Styles */
+
+nav {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6) !important
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.appLogo {
+  height: 80px;
+  width: 80px;
+}
+
+.toolsContainer button {
+  height: 40px !important;
+  width: 40px !important;
+}
+
+.fontSeparate {
+  letter-spacing: 8px;
+}
+
+.fontSubtitle {
+  letter-spacing: 2px;
+  font-size: 12px !important;
+  font-weight: 400;
+}
+.fontMedium {
+  letter-spacing: 2px;
+  font-size: 10px !important;
+  font-weight: 400;
+}
+.fontSmall {
+  letter-spacing: 2px;
+  font-size:  .4rem !important;
+  font-weight: 400;
+}
+/* Scroller */
+.board::-webkit-scrollbar {
+  width: 10px;
+}
+
+.board::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px; 
+}
+
+.board::-webkit-scrollbar-thumb {
+  background: #3dc681; 
+  border-radius: 10px; 
+}
+
+.board::-webkit-scrollbar-thumb:hover {
+  background: #3dc681; 
+}
+
+/* Tarjetas */
+.card {
+  width: 100%;
+  /* Mantiene la proporción cuadrada */
+  padding-top: 100%;
+  position: relative;
+  margin: 8px;
+  padding: 5px;
+  background-image: url('./assets/MemorizeCover.png');
+  background-size: cover; 
+  background-position: center; 
+  border-radius: 12px;
+}
+
+.smallCard {
+  height: 120px;
+  width: 120px;
+}
+
+.mediumCard {
+  height: 140px;
+  width: 140px;
+}
+
+.largeCard {
+  height: 220px;
+  width: 220px;
+}
+
+.card:hover, .card:focus, .card:active {
+	animation-name: hvr-bounce-float, hvr-float;
+	animation-duration: .3s, 1.5s;
+	animation-delay: 0s, .3s;
+	animation-timing-function: ease-out, ease-in-out;
+	animation-iteration-count: 1, infinite;
+	animation-fill-mode: forwards;
+	animation-direction: normal, alternate;
+	box-shadow: 5px 2px 20px 0 #3dc681;
+}
+
+.card img {
+  border-radius: 8px;
+}
+
+.board .card.flipped {
+	transform: rotateY(0);
+	background: #03785b;
+	cursor: default;
+	animation-name: flipCardIn;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+  animation-duration: .75s;
+  font-size: 33px;
+}
+
+.board .card.match {
+	cursor: default;
+	background: #66fcf2b0;
+	font-size: 33px;
+	animation-name: boing;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
+.board .card.unmatched {
+	animation-name: pushOut;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+  background-image: url('./assets/x_icon.png') !important;
+  background-size: cover !important; 
+  background-position: center !important; 
+	background: #b10e37;
+  border-radius: 12px;
+  border: 6px solid #1a202c;
+}
+
+.board .card.disabled {
+	pointer-events: none;
+	opacity: 0.9;
+}
+
+/* Scoreboard */
+
+body {
+  overflow-x: hidden;
+}
+
+.table-container {
+  max-width: 100%; 
+  overflow-x: hidden;
+}
+
+.table-container table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table-container th, .table-container td {
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+/* Card Animations */
+@keyframes flipCardIn {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
+
+@keyframes boing {
+	from {
+		transform: scale3d(2, 2, 2);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, .95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes pushOut {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes hvr-float {
+	0% {
+		-webkit-transform: translateY(-6px);
+		transform: translateY(-6px);
+	}
+	50% {
+		-webkit-transform: translateY(-3px);
+		transform: translateY(-3px);
+	}
+	100% {
+		-webkit-transform: translateY(-6px);
+		transform: translateY(-6px);
+	}
+}
+
+@keyframes hvr-bounce-float {
+	100% {
+		-webkit-transform: translateY(-6px);
+		transform: translateY(-6px);
+  	}
+}
+
+/* Darkmode toggle styles */
+
+#app {
+  height: 100vh;
+  width: 100%;
+}
+
+#toggle {
+  width: 70px;
+  display: flex;
+  padding: 5px;
+  background-color: #1a202c;
+  display: block;
+  border-radius: 1000px;
+  cursor: pointer;
+  box-shadow: 0px 5px 20px -10px #1a202c;
+  transition: background-color 0.2s ease-in;
+  
+  .toggle-inner {
+    width: 30px;
+    height: 25px;
+    background-color: #F8F7F4;
+    border-radius: 1000px;
+    transition: margin-left 0.2s ease-in, background-color 0.2s ease-in;
+
+    &.toggle-active {
+      margin-left: 30px;
+    }
+  }
+}
+
+.dark-mode {
+  
+  #toggle {
+    background-color: #F8F7F4;
+
+    .toggle-inner {
+      background-color: #1a202c;
+    }
+  }
+}
+
+/* Congratulations Modal */
+.congratulationsModal {
+  width: 300px;
+  height: 500px;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Spot effect */
+
+.button-holder p {
+  width: 130px;
+}
+
+.breakWord {
+  overflow-wrap: break-word m !important;
+  word-wrap: break-word !important;
+}
+
+.light-button button.bt {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.light-button button.bt .button-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  width: 140px;
+  background-color: #0a0a0a;
+  border-radius: 5px;
+  color: #0f0f0f;
+  font-weight: 700;
+  transition: 800ms;
+  outline: #0f0f0f 2px solid;
+  outline-offset: 20;
+}
+
+.light-button button.bt .button-holder svg {
+  height: 80px;
+  fill: #0f0f0f;
+  transition: 300ms;
+}
+
+.light-button button.bt .light-holder {
+  position: absolute;
+  height: 220px;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.light-button button.bt .light-holder .dot {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #0a0a0a;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.light-button button.bt .light-holder .light {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 240px;
+  clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
+  background: transparent;
+}
+
+.light-button button.activate .button-holder svg {
+  fill: #334165;
+}
+
+.light-button button.activate .button-holder {
+  color: #3dc681;
+  outline: #3dc681 2px solid;
+  outline-offset: 2px;
+}
+
+.light-button button.activate .light-holder .light {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    #3dc681 0%,
+    rgba(255, 255, 255, 0) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+@media only screen and (max-width: 1500px) {
+  .smallCard {
+    width: 100px;
+    height:100px;
+  }
+  .fontSmall {
+    font-size: .3rem !important;
+  }
+  aside {
+    width: 30% !important
+  }
+}
+
+@media only screen and (max-width: 1275px) {
+  .smallCard {
+    width: 80px;
+    height:80px;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .smallCard {
+    width: 60px;
+    height:60px;
+  }
+}
+
+@media only screen and (max-width: 875px) {
+  .container {
+    margin-left: 0.4rem;
+  }
+  .smallCard {
+    width: 80px;
+    height:80px;
+  }
+  .appLogo {
+    width: 40px;
+    height: 40px;
+  }
+  #toggle {
+    width: 40px;
+    height: 20px;
+    margin-right: 1rem;
+  }
+  .settingContainer {
+    margin-right: 0.8rem;
+  }
+  .toggle-inner {
+    width: 15px !important;
+    height: 10px !important;
+
+    &.toggle-active {
+      margin-left: 13px !important;
+    }
+  }
+  main div section {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+  aside {
+    display: none;
+  }
+  .fontSeparate {
+    font-size: 10px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    margin: 0 !important;
+  }
+  .smallCard {
+    width: 85px;
+    height:85px;
+  }
+
+  .mainContainer {
+    width: 100vw !important;
+  }
+  nav {
+    width: 95vw;
+  }
+  .settingContainer {
+    margin-right: 24px;
+  }
+  .toolsContainer div {
+    margin-right: 16px !important;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .smallCard {
+    width: 50px;
+    height:50px;
+  }
+
+  .mainContainer {
+    width: 95vw !important;
+  }
+  .mediumCard {
+    width: 65px;
+    height: 65px;
+  }
+  main div section {
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+  nav {
+    width: 100vw;
+  }
+  .settingContainer {
+    margin-right: 24px;
+  }
+
+  .fontSeparate {
+    font-size: 8px;
+  }
+  .modalContainer {
+    width: 80%;
+  }
+  .fontSmall {
+    font-size: 12px !important;
+  }
+  nav .container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .appLogo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .text-xl {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .smallCard {
+    width: 65px;
+    height: 65px;
+  }
+  .largeCard {
+    width: 65px;
+    height: 65px;
+  }
+
+  .mainContainer {
+    width: 100vw !important;
+  }
+  main div section {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+  .settingContainer {
+    margin-right: 24px;
+  }
+  .modalContainer, .modalContainer div {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center
+  }
+
+  .toolsContainer div {
+    margin-right: 8px !important;
+  }
+
+  .toolsContainer button {
+    display: flex;
+    align-items: center !important;
+    justify-content: end;
+    height: 30px !important;
+    width: 30px !important;
+  }
+
+  .fontSeparate {
+    font-size: 6px;
+    letter-spacing: 2px;
+    margin-right: 12px;
+  }
 }
