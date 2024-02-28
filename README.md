@@ -6,7 +6,8 @@ Some features to point out in this project are i18n for supporting both english 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-You can find this project deployed here: https://memorize-natera.netlify.app
+**You can find this project deployed here:** [https://memorize-natera.netlify.app](https://memorize-natera.netlify.app)
+
 
 ## 🚀 Getting Started
 
