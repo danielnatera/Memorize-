@@ -412,6 +412,10 @@ body {
   );
 }
 
+.mobileScoresContainer {
+  display: none;
+}
+
 @media only screen and (max-width: 1500px) {
   .smallCard {
     width: 100px;
@@ -500,10 +504,24 @@ body {
   aside {
     display: none;
   }
+  .mobileScoresContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: transparent;
+  }
   .fontSeparate {
     font-size: 10px;
   }
-
+  .mobileHits {
+    margin-right: 56px;
+  }
+  .mobileMisses {
+    margin-left: 56px;
+  }
+  .toolsContainer {
+    margin-right: 48px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -534,8 +552,8 @@ body {
   nav {
     width: 95vw;
   }
-  .settingContainer {
-    margin-right: 24px;
+  .toolsContainer {
+    margin-right: 48px;
   }
   .toolsContainer div {
     margin-right: 16px !important;
@@ -552,7 +570,7 @@ body {
   }
 
   .mainContainer {
-    width: 95vw !important;
+    width: 100vw !important;
   }
   .mediumCard {
     width: 65px;
@@ -562,11 +580,14 @@ body {
     width: 100vw;
   }
   .settingContainer {
-    margin-right: 24px;
+    width: 30px !important;
+    height: 30px !important;
   }
 
   .fontSeparate {
-    font-size: 8px;
+    font-size: 8px !important;
+    letter-spacing: 0;
+    margin-right: 12px;
   }
   .modalContainer {
     width: 80%;
@@ -587,10 +608,28 @@ body {
     display: none;
   }
   .board {
-    margin: 4px 4px 0px 4px;
+    margin: 4px 4px 0px 32px;
   }
   select {
     font-size: 8px;
+  }
+  .mobileScoresContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: transparent;
+  }
+  .fontSeparate {
+    font-size: 10px;
+  }
+  .mobileHits {
+    margin-right: 16px;
+  }
+  .mobileMisses {
+    margin-left: 16px;
+  }
+  .toolsContainer {
+    margin-right: 4px;
   }
 }
 
@@ -637,5 +676,29 @@ body {
     font-size: 6px;
     letter-spacing: 2px;
     margin-right: 12px;
+  }
+  .toolsContainer {
+    margin-right: 0px;
+  }
+  .mobileHits {
+    font-size: 12px;
+  }
+  .mobileMisses {
+    font-size: 12px;
+  }
+  input {
+    font-size: 8px !important;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  select {
+    font-size: 6px;
+  }
+  .settingContainer {
+    margin-left: 12px;
+    margin-right: 0px;
+    width: 20px !important;
+    height: 20px !important;
   }
 }

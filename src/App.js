@@ -5,6 +5,7 @@ import Scoreboard from "./components/Scoreboard";
 import Congratulations from "./components/Congratulations";
 import Navbar from "./components/Navbar";
 import Settings from "./components/Settings";
+import MobileScores from "./components/MobileScores";
 import "./index.css";
 
 function App() {
@@ -181,6 +182,7 @@ function App() {
       <div className="flex flex-1 overflow-hidden">
         <main className="flex-1 bg_light dark:bg-dark2">
           {!username && <Welcome onSaveUsername={saveUsername} />}
+          <MobileScores hits={hits} misses={misses} />
           <Board
             cards={cards}
             handleFlip={handleFlip}
