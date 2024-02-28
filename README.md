@@ -40,7 +40,7 @@ Launches the test runner in interactive watch mode. For more information, see th
 npm run build
 Builds the app for production to the build folder. It bundles React in production mode, optimizing the build for the best performance. The build is minified, and filenames include the hashes.
 
-###🔧 Built Using
+### 🔧 Built Using
 React  
 Tailwind CSS 
 i18n
