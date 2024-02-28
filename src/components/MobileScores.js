@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 function MobileScores({ hits, misses }) {
   const { t } = useTranslation("vocab");
   return (
+    //Scores for mobile views
     <div className="w-full mx-3 mt-10 text-center mb-5 mobileScoresContainer dark:text-light">
       <p class="mobileHits">
         {t("hits")}:{hits}

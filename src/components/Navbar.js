@@ -18,6 +18,7 @@ function Navbar({ setOpenSettings }) {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
+  // Language select
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
     i18n.changeLanguage(selectedLanguage);

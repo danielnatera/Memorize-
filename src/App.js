@@ -54,7 +54,7 @@ function App() {
     if (isBoardLocked || cardId === activeCard?.id) return;
     const newCards = cards.map((card) => {
       if (card.id === cardId) {
-        return { ...card, isFlipped: true, tempState: "flipping" }; // Agregar un estado temporal
+        return { ...card, isFlipped: true, tempState: "flipping" }; // Adding temporal states
       }
       return card;
     });
@@ -62,13 +62,10 @@ function App() {
     if (!selectedCard.isMatched) {
       toggleFlipCardById(cardId);
       if (activeCard === null) {
-        // Si no hay una carta activa, la seleccionada se convierte en la activa
         setActiveCard(selectedCard);
       } else if (selectedCard.id !== activeCard.id) {
-        // Comprobar si la carta seleccionada coincide con la activa
         if (selectedCard.meta.name === activeCard.meta.name) {
           setIsBoardLocked(true);
-          // Si coinciden, marcar ambas cartas como coincididas
           const matchedCards = newCards.map((card) => {
             if (card.meta.name === selectedCard.meta.name) {
               return { ...card, isMatched: true, tempState: "matched" };
@@ -77,10 +74,10 @@ function App() {
           });
           setHits((hits) => hits + 1);
           setCards(matchedCards);
-          setActiveCard(null); // Resetea la carta activa para el siguiente turno
+          setActiveCard(null);
         } else {
-          // Si no coinciden, volver a voltear ambas cartas después de un breve retraso
-          setIsBoardLocked(true); // Bloquear el tablero mientras las cartas están siendo mostradas
+          // If there's no match there will be a delay
+          setIsBoardLocked(true); // Blocking the board while the cards are being shown
           setMisses((misses) => misses + 1);
           setTimeout(() => {
             const resetCards = newCards.map((card) => {
@@ -90,7 +87,7 @@ function App() {
               return card;
             });
             setCards(resetCards);
-            setActiveCard(null); // Resetea la carta activa para el siguiente turno
+            setActiveCard(null); // Reset cards
           }, 1000);
         }
       } else {
@@ -103,7 +100,7 @@ function App() {
             return card;
           });
           setCards(resetCards);
-          setActiveCard(null); // Resetea la carta activa para el siguiente turno
+          setActiveCard(null);
           setIsBoardLocked(false);
         }, 100);
       }
@@ -114,9 +111,9 @@ function App() {
     setCards((currentCards) =>
       currentCards.map((card) => {
         if (card.id === cardId) {
-          return { ...card, tempState: null }; // Limpiar el estado temporal
+          return { ...card, tempState: null }; // Cleaning temporal states
         }
-        setIsBoardLocked(false); // Desbloquear el tablero después animación
+        setIsBoardLocked(false); // Unlocking board after animations
         return card;
       })
     );

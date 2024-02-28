@@ -67,7 +67,6 @@ select {
 /* Tarjetas */
 .card {
   width: 100%;
-  /* Mantiene la proporción cuadrada */
   padding-top: 100%;
   position: relative;
   margin: 8px;

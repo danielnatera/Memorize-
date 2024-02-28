@@ -30,14 +30,14 @@ function Settings({
 
   const handleConfirm = () => {
     localStorage.setItem("userName", username);
-    setOpenSettings(false); // Cierra el modal
+    setOpenSettings(false); // Closing settings modal
   };
 
   const handleDifficultyChange = (newDifficulty) => {
     if (currentDifficulty !== newDifficulty) {
       setCurrentDifficulty(newDifficulty);
-      localStorage.setItem("difficulty", newDifficulty); // Guarda la nueva dificultad en localStorage
-      resetGame(); // Reinicia el juego con la nueva dificultad
+      localStorage.setItem("difficulty", newDifficulty); // Storing difficulty on localStorage
+      resetGame(); // Restart the game with chosen difficulty
     }
   };
 

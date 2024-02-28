@@ -33,7 +33,7 @@ function Card({
   useEffect(() => {
     if (tempState === "matched" || tempState === "unmatched") {
       const timed = setTimeout(() => {
-        // Informar al componente padre para limpiar el estado temporal
+        // Triggering the cleanUp of the card
         handleCleanUp(card.id);
       }, 800);
       return () => clearTimeout(timed);
