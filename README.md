@@ -41,6 +41,6 @@ npm run build
 Builds the app for production to the build folder. It bundles React in production mode, optimizing the build for the best performance. The build is minified, and filenames include the hashes.
 
 ### 🔧 Built Using
-**React  
-**Tailwind CSS 
-**i18n
+** React  
+** Tailwind CSS 
+** i18n
