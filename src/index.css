@@ -331,7 +331,7 @@ body {
   position: relative;
   height: 200px;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   outline: none;
   background: none;
   border: none;
@@ -579,7 +579,7 @@ body {
   .toolsContainer button {
     display: flex;
     align-items: center !important;
-    justify-content: end;
+    justify-content: flex-end;
     height: 30px !important;
     width: 30px !important;
   }
