@@ -6,7 +6,7 @@ Some features to point out in this project are i18n for supporting both english 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Memorize Game Screenshot](path/to/your/screenshot.png)
+You can find this project deployed here: https://memorize-natera.netlify.app
 
 ## 🚀 Getting Started
 
@@ -22,3 +22,24 @@ To get a local copy up and running follow these simple steps.
 Clone the repo
   ```sh
 git clone https://github.com/your_username_/Project-Name.git
+ ```
+Install NPM packages
+ ```
+npm install
+ ```
+### 🖥️ Running the App
+In the project directory, you can run:
+
+npm start
+Runs the app in development mode. Open http://localhost:3000 to view it in your browser. The page will reload with any edits. Lint errors are also displayed in the console.
+
+npm test
+Launches the test runner in interactive watch mode. For more information, see the running tests section.
+
+npm run build
+Builds the app for production to the build folder. It bundles React in production mode, optimizing the build for the best performance. The build is minified, and filenames include the hashes.
+
+###🔧 Built Using
+React  
+Tailwind CSS 
+i18n
